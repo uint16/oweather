@@ -1,0 +1,43 @@
+.weather-forecast-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  align-self: center;
+  align-content: center;
+}
+
+.weather-forecast-description-container {
+  display: flex;
+  flex-direction: column;
+  font-size: medium;
+  align-self: center;
+  align-content: center;
+  align-items: center;
+}
+.weather-forecast-description-details {
+  font-size: small;
+  font-weight: 500;
+}
+
+.weather-forecast-description-time {
+  font-size: small;
+  font-weight: 600;
+  font-style: normal;
+  color: grey;
+}
+
+.weather-forecast-description-real-feel {
+  font-size: small;
+  font-weight: 400;
+}
+
+.weather-forecast-container img {
+  height: auto;
+  width: fit-content;
+}
+
+.weather-forecast-main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

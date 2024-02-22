@@ -1,0 +1,11 @@
+.day-summary-container {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  align-items: stretch;
+}
+
+.side-summary {
+  display: flex;
+  flex-direction: column;
+}
