@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useWeatherData } from "../../hooks/useWeatherData";
 import "./Weather.css"
-import { getLocalDate, getLocalDateTime, unixTimetoDate } from "../../utils/helpers";
+import { getLocalDate, getLocalDateTime } from "../../utils/helpers";
 import { groupBy } from "lodash";
 import DayForecast from "../dayForecast/DayForecast";
 import { useDispatch } from "react-redux";

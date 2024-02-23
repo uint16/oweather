@@ -20,7 +20,7 @@ const IntervalForecast: React.FC<ForecastItemProps> = ({ intervalForecastItem,  
       <span className="weather-forecast-description-time">{getLocalTime(intervalForecastItem.dt, timezoneOffset)}</span>
         <div className="weather-forecast-main">
           <h4>{getTemperatureInUnit(intervalForecastItem.main.temp, temperatureUnit)}</h4>
-          <img src={`${OPEN_WEATHER_ICON_BASE_URL}/${intervalForecastItem.weather[0].icon}@2x.png`} />
+          <img alt="Weather icon" src={`${OPEN_WEATHER_ICON_BASE_URL}/${intervalForecastItem.weather[0].icon}@2x.png`} />
           <span className="weather-forecast-description-details">{intervalForecastItem.weather[0].description}</span>
         </div>
         <div className="weather-forecast-description-container">

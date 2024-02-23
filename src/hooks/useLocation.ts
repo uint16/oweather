@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { OPEN_WEATHER_DATA_GEOPOINT_URL } from "../utils/constants";
 
 export const useLocation = () => {
