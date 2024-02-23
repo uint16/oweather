@@ -1,22 +1,28 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { WeatherData, WeatherResponse } from "../utils/types";
 
-export interface weatherState {
-  data: {}
-}
-
-const initialState: weatherState = {
-  data: {}
+const initialState: WeatherData = {
+  cityName: "",
+  sunset: -1,
+  sunrise: -1,
+  timezoneOffset: -1,
+  forecasts: [],
+  lat: 0,
+  lon: 0,
+  count: 0
 }
 
 export const weatherSlice = createSlice({
   name: "weather",
   initialState,
   reducers: {
-    refreshData: (state) => {
-
+    refreshData: (state, action: PayloadAction<WeatherData>) => {
+      return {
+        ...action.payload,
+      }
     },
     clearData: (state) => {
-
+      return undefined
     }
   }
 })

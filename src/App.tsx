@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Weather from './Weather';
+import Weather from './components/weather/Weather';
 
 function App() {
   

@@ -64,3 +64,20 @@ export interface WeatherResponse {
   list: IntervalForecast[]
   city: City
 }
+
+export interface WeatherData {
+  cityName: string,
+  sunset: number,
+  sunrise: number,
+  timezoneOffset: number,
+  forecasts: IntervalForecast[],
+  lat: number,
+  lon: number,
+  count: number,
+}
+
+export enum TemperatureUnit {
+  CELCIUS = "CELCIUS",
+  FAHRENHEIT = "FAHRENHEIT",
+  KELVIN ="KELVIN"
+}

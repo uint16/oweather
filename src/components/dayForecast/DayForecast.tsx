@@ -1,5 +1,5 @@
 import * as React from "react";
-import IntervalForecast from "./IntervalForecast";
+import IntervalForecast from "../intervalForecast/IntervalForecast";
 import "./DayForecast.css";
 import moment from "moment";
 
@@ -11,10 +11,9 @@ export interface DayForecastProps {
 
 const DayForecast: React.FC<DayForecastProps> = ({ date, intervalForecastItems }) => {
 
-
   return (
     <>
-      <h3>{moment(date).format("dddd, MMM Do YYYY")}</h3>
+      <h3>{moment(date).format("LL")}</h3>
       { intervalForecastItems.map((intervalForecastItem) => {
         return <IntervalForecast intervalForecastItem={intervalForecastItem} />
       })
