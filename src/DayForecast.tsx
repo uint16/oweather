@@ -14,7 +14,7 @@ const DayForecast: React.FC<DayForecastProps> = ({ date, intervalForecastItems }
 
   return (
     <>
-      <h3>{moment(date).format("dddd MMM Do YY")}</h3>
+      <h3>{moment(date).format("dddd, MMM Do YYYY")}</h3>
       { intervalForecastItems.map((intervalForecastItem) => {
         return <IntervalForecast intervalForecastItem={intervalForecastItem} />
       })

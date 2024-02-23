@@ -4,6 +4,7 @@
   align-items: stretch;
   align-self: center;
   align-content: center;
+  padding-bottom: 20px;
 }
 
 .weather-forecast-description-container {

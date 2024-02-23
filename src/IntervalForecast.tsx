@@ -20,9 +20,9 @@ const IntervalForecast: React.FC<ForecastItemProps> = ({ intervalForecastItem })
         <div className="weather-forecast-description-container">
           <span className="weather-forecast-description-real-feel">Max: {intervalForecastItem.main.temp_max}</span>
           <span className="weather-forecast-description-real-feel">Min: {intervalForecastItem.main.temp_min}</span>
-          <span className="weather-forecast-description-real-feel">Reel Feel: {intervalForecastItem.main.feels_like}</span>
+          <span className="weather-forecast-description-real-feel">Real Feel: {intervalForecastItem.main.feels_like}</span>
         </div>
-        <div className="forecast-summary-container ">
+        {/* <div className="forecast-summary-container ">
         <div className="side-summary">
           <span>Wind Speed: </span>
           <span>Wind Direction: </span>
@@ -37,7 +37,7 @@ const IntervalForecast: React.FC<ForecastItemProps> = ({ intervalForecastItem })
           <span></span>
           <span></span>
         </div>
-      </div>
+      </div> */}
       </div>
     </div>);
 }
