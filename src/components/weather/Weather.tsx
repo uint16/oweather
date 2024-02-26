@@ -6,8 +6,6 @@ import { groupBy } from "lodash";
 import DayForecast from "../dayForecast/DayForecast";
 import { useDispatch } from "react-redux";
 import { refreshData } from "../../store/weatherSlice";
-import UnitSelector from "../selectors/UnitSelector";
-import SearchLocation from "../searchLocation/SearchLocation";
 
 
 const Weather = (props: {lat: number, lon: number}) => {
