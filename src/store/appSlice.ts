@@ -5,7 +5,7 @@ interface appState {
   unit: TemperatureUnit,
   count: number,
   language: string
-  selectedCity: {
+  selectedCity?: {
     lat: number,
     lon: number
   }
@@ -15,10 +15,7 @@ const initialAppState: appState = {
   unit: TemperatureUnit.CELCIUS,
   count: 40,
   language: "en",
-  selectedCity: {
-    lat: 0,
-    lon: 0
-  }
+  selectedCity: undefined
 }
 
 export const appSlice = createSlice({
@@ -31,13 +28,13 @@ export const appSlice = createSlice({
         unit: action.payload
       }
     },
-    setCity: (state, action: PayloadAction<string>) => {
-      const coord = action.payload.split(" ");
+    setCity: (state, action: PayloadAction<{lat: number, lon: number}>) => {
+      
       return {
         ...state,
         selectedCity: {
-          lat: Number(coord[0]),
-          lon: Number(coord[1])
+          lat: action.payload.lat,
+          lon: action.payload.lon
         }
       }
     }

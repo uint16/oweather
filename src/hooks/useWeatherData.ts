@@ -3,11 +3,11 @@ import { useQuery } from "@tanstack/react-query"
 import axios from "axios";
 import { WeatherData, WeatherResponse } from "../utils/types";
 
-export const useWeatherData = (latitude: string, longitude: string) => {
+export const useWeatherData = (latitude: number, longitude: number) => {
   const { data, isLoading, isSuccess, isError, error } = useQuery({
     queryKey: ["forecast", latitude, longitude],
     queryFn: async () => {
-      return (await axios.get(`${OPEN_WEATHER_DATA_BASE_URL}?lat=44.34&lon=10.99&appid=${process.env.REACT_APP_API_KEY}`)).data as WeatherResponse;
+      return (await axios.get(`${OPEN_WEATHER_DATA_BASE_URL}?lat=${latitude}&lon=${longitude}&appid=${process.env.REACT_APP_API_KEY}`)).data as WeatherResponse;
     },
     select: (data: WeatherResponse) => {
       const weatherData: WeatherData = {

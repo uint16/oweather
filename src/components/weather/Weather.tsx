@@ -9,9 +9,10 @@ import { refreshData } from "../../store/weatherSlice";
 import UnitSelector from "../selectors/UnitSelector";
 import SearchLocation from "../searchLocation/SearchLocation";
 
-const Weather = () => {
+
+const Weather = (props: {lat: number, lon: number}) => {
   const dispatch = useDispatch()
-  const { forecast, isLoading, isError, isSuccess, error } = useWeatherData("44.34", "10.99");
+  const { forecast, isLoading, isError, isSuccess, error } = useWeatherData(props.lat, props.lon);
   
 
   if(isSuccess && forecast) {
@@ -27,8 +28,6 @@ const Weather = () => {
       {isLoading && <h3>Loading ...</h3>}
       {isSuccess && forecast && (
         <>
-          <UnitSelector/>
-          <SearchLocation/>
           <h3>{forecast.cityName}</h3>
           <span>Sunrise: {getLocalDateTime(forecast.sunrise, forecast.timezoneOffset)}</span>
           <span>Sunset: {getLocalDateTime(forecast.sunset, forecast.timezoneOffset)}</span>
