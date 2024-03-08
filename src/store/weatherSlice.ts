@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { WeatherData } from "../utils/types";
 
-const initialState: WeatherData = {
+const initialState: WeatherData  = {
   cityName: "",
   sunset: -1,
   sunrise: -1,
@@ -22,7 +22,7 @@ export const weatherSlice = createSlice({
       }
     },
     clearData: (state) => {
-      return undefined
+      return initialState
     }
   }
 })

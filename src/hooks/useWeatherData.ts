@@ -1,7 +1,7 @@
 import { OPEN_WEATHER_DATA_BASE_URL } from './../utils/constants';
 import { useQuery } from "@tanstack/react-query"
-import axios from "axios";
 import { WeatherData, WeatherResponse } from "../utils/types";
+import axios from 'axios';
 
 export const useWeatherData = (latitude: number, longitude: number) => {
   const { data, isLoading, isSuccess, isError, error } = useQuery({
@@ -26,7 +26,7 @@ export const useWeatherData = (latitude: number, longitude: number) => {
   });
 
   return {
-    forecast: data,
+    weatherData: data,
     isLoading,
     isError,
     error,

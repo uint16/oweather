@@ -12,11 +12,9 @@ function App() {
 
   return (
     <div className="App">
-
       <UnitSelector />
       <SearchLocation />
       { selectedCity && <Weather {...selectedCity}/> }
-
     </div>
   );
 }

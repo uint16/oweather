@@ -4,18 +4,25 @@ import "./Weather.css"
 import { getLocalDate, getLocalDateTime } from "../../utils/helpers";
 import { groupBy } from "lodash";
 import DayForecast from "../dayForecast/DayForecast";
-import { useDispatch } from "react-redux";
-import { refreshData } from "../../store/weatherSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { clearData, refreshData } from "../../store/weatherSlice";
+import { RootState } from "../../store/store";
+import { useEffect } from "react";
 
 
 const Weather = (props: {lat: number, lon: number}) => {
   const dispatch = useDispatch()
-  const { forecast, isLoading, isError, isSuccess, error } = useWeatherData(props.lat, props.lon);
+  const { weatherData, isLoading, isError, isSuccess, error } = useWeatherData(props.lat, props.lon);
+  const { sunrise, sunset, forecasts, cityName, timezoneOffset} = useSelector((state: RootState) => state.weather)
   
 
-  if(isSuccess && forecast) {
-    dispatch(refreshData(forecast))
-  }
+  useEffect(() => {
+    if(isSuccess && weatherData){
+      dispatch(clearData())
+      dispatch(refreshData(weatherData))
+    }
+
+  }, [isLoading, isSuccess, weatherData])
 
   if (isError) {
     return <p>Error fetching weather data... {error?.message}</p>;
@@ -24,17 +31,17 @@ const Weather = (props: {lat: number, lon: number}) => {
   return (
     <div className="weather">
       {isLoading && <h3>Loading ...</h3>}
-      {isSuccess && forecast && (
+      {isSuccess && forecasts.length && (
         <>
-          <h3>{forecast.cityName}</h3>
-          <span>Sunrise: {getLocalDateTime(forecast.sunrise, forecast.timezoneOffset)}</span>
-          <span>Sunset: {getLocalDateTime(forecast.sunset, forecast.timezoneOffset)}</span>
+          <h3>{cityName}</h3>
+          <span>Sunrise: {getLocalDateTime(sunrise, timezoneOffset)}</span>
+          <span>Sunset: {getLocalDateTime(sunset, timezoneOffset)}</span>
 
           <h2>5 days forecast (3hrs intervals)</h2>
           {Object.entries(
             groupBy(
-              forecast.forecasts, (fcast) => {
-                return getLocalDate(fcast.dt, forecast.timezoneOffset);
+              forecasts, (fcast) => {
+                return getLocalDate(fcast.dt, timezoneOffset);
               }
             )).map(([key, value]) => {
               return (
